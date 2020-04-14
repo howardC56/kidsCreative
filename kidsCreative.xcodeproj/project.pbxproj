@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,7 +58,6 @@
 				C51D533E2BDB7B15DC8285E3 /* Pods-kidsCreative.debug.xcconfig */,
 				A3C3BB50E2379422373B7AA3 /* Pods-kidsCreative.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +82,14 @@
 		8889505D24452C68003DDE1E /* kidsCreative */ = {
 			isa = PBXGroup;
 			children = (
-				8889505E24452C68003DDE1E /* AppDelegate.swift */,
-				8889506024452C68003DDE1E /* SceneDelegate.swift */,
+				88895083244534F4003DDE1E /* Models */,
+				888950842445350B003DDE1E /* SupportingFiles */,
 				8889507F24452F8B003DDE1E /* FireBaseServices */,
 				8889507A24452D2A003DDE1E /* Views */,
 				8889507724452CF3003DDE1E /* ViewControllers */,
 				8889506A24452C6A003DDE1E /* Assets.xcassets */,
-				8889506C24452C6A003DDE1E /* LaunchScreen.storyboard */,
 				888950802445312E003DDE1E /* GoogleService-Info.plist */,
 				8889506F24452C6A003DDE1E /* Info.plist */,
-				8889506724452C68003DDE1E /* kidsCreative.xcdatamodeld */,
 			);
 			path = kidsCreative;
 			sourceTree = "<group>";
@@ -121,6 +118,24 @@
 				8889507D24452F7A003DDE1E /* DataBaseService.swift */,
 			);
 			path = FireBaseServices;
+			sourceTree = "<group>";
+		};
+		88895083244534F4003DDE1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8889506724452C68003DDE1E /* kidsCreative.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		888950842445350B003DDE1E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8889505E24452C68003DDE1E /* AppDelegate.swift */,
+				8889506024452C68003DDE1E /* SceneDelegate.swift */,
+				8889506C24452C6A003DDE1E /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		DD315C6943AF04EE3FDFF52D /* Frameworks */ = {
