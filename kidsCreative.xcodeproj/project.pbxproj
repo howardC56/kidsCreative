@@ -17,8 +17,9 @@
 		8889507624452CEF003DDE1E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507524452CEF003DDE1E /* DetailViewController.swift */; };
 		8889507924452D24003DDE1E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507824452D24003DDE1E /* MainView.swift */; };
 		8889507C24452D3C003DDE1E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507B24452D3C003DDE1E /* DetailView.swift */; };
-		8889507E24452F7A003DDE1E /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507D24452F7A003DDE1E /* DataBaseService.swift */; };
+		8889507E24452F7A003DDE1E /* FireBaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507D24452F7A003DDE1E /* FireBaseDataService.swift */; };
 		888950812445312E003DDE1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888950802445312E003DDE1E /* GoogleService-Info.plist */; };
+		8889508F244650F0003DDE1E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889508E244650F0003DDE1E /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +35,9 @@
 		8889507524452CEF003DDE1E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8889507824452D24003DDE1E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8889507B24452D3C003DDE1E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		8889507D24452F7A003DDE1E /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
+		8889507D24452F7A003DDE1E /* FireBaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseDataService.swift; sourceTree = "<group>"; };
 		888950802445312E003DDE1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8889508E244650F0003DDE1E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		A3C3BB50E2379422373B7AA3 /* Pods-kidsCreative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsCreative.release.xcconfig"; path = "Target Support Files/Pods-kidsCreative/Pods-kidsCreative.release.xcconfig"; sourceTree = "<group>"; };
 		C51D533E2BDB7B15DC8285E3 /* Pods-kidsCreative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsCreative.debug.xcconfig"; path = "Target Support Files/Pods-kidsCreative/Pods-kidsCreative.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,7 +117,7 @@
 		8889507F24452F8B003DDE1E /* FireBaseServices */ = {
 			isa = PBXGroup;
 			children = (
-				8889507D24452F7A003DDE1E /* DataBaseService.swift */,
+				8889507D24452F7A003DDE1E /* FireBaseDataService.swift */,
 			);
 			path = FireBaseServices;
 			sourceTree = "<group>";
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				8889506724452C68003DDE1E /* kidsCreative.xcdatamodeld */,
+				8889508E244650F0003DDE1E /* Activity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,7 +270,8 @@
 				8889507C24452D3C003DDE1E /* DetailView.swift in Sources */,
 				8889507624452CEF003DDE1E /* DetailViewController.swift in Sources */,
 				8889506124452C68003DDE1E /* SceneDelegate.swift in Sources */,
-				8889507E24452F7A003DDE1E /* DataBaseService.swift in Sources */,
+				8889508F244650F0003DDE1E /* Activity.swift in Sources */,
+				8889507E24452F7A003DDE1E /* FireBaseDataService.swift in Sources */,
 				8889506924452C68003DDE1E /* kidsCreative.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +412,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H39KTTHR8M;
 				INFOPLIST_FILE = kidsCreative/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H39KTTHR8M;
 				INFOPLIST_FILE = kidsCreative/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
