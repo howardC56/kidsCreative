@@ -14,6 +14,7 @@
 
 Keeping kids entertained and learning is not the easiest task and social distancing isn’t making it easier. Use [App Name] to explore constructive and creative activities do with with your entire family. Users can find activities along with easy instructions on how to get started as well as store images and videos of their attempts. 
 Activities are designed for children in grades PK–2. 
+[Link to Apple PDF](https://education-static.apple.com/creativity-for-kids/activities.pdf)
 
 [Gifs Here]
 
@@ -23,6 +24,6 @@ Firebase was used to build database to store activity list. <br />
 Core Data was used to locally store media of completed activity. 
 
 ## Used in App
-- Kingfisher 
+- [Kingfisher](https://cocoapods.org/pods/Kingfisher)
 - Persistance using Core Data 
 - Firebase - Database structure
