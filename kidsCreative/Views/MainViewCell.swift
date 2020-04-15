@@ -2,12 +2,24 @@
 //  MainViewCell.swift
 //  kidsCreative
 //
+<<<<<<< HEAD
 //  Created by Margiett Gil on 4/14/20.
+=======
+//  Created by Howard Chang on 4/15/20.
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 //  Copyright © 2020 Howard Chang. All rights reserved.
 //
 
 import UIKit
 
+<<<<<<< HEAD
+=======
+protocol ContinueCellDelegate: AnyObject {
+    func didSelectMoreButton(_ savedArticleCell: MainViewCell)
+}
+
+
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 class MainViewCell: UICollectionViewCell {
     
     public lazy var dateDay: UILabel = {
@@ -38,6 +50,7 @@ class MainViewCell: UICollectionViewCell {
     }()
     
     
+<<<<<<< HEAD
     public lazy var circleImage: UIImageView = {
         let imageview = UIImageView()
         imageview.image = UIImage(systemName: "circle")
@@ -47,6 +60,33 @@ class MainViewCell: UICollectionViewCell {
         
     }()
     
+=======
+    public lazy var circleImage: UIButton = {
+        let starbutton = UIButton()
+        starbutton.setImage(UIImage(systemName: "star"), for: .normal)
+        starbutton.addTarget(self, action: #selector(moreButtonPressed(_ :)), for: .touchUpInside)
+        //imageview.image = UIImage(systemName: "circle")
+        starbutton.contentMode = .scaleAspectFill
+        starbutton.tintColor = .systemTeal
+        return starbutton
+        
+    }()
+    
+    @objc
+    private func moreButtonPressed(_ sender: UIButton) {
+        
+    }
+    
+    public lazy var statementLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 4
+        label.font = UIFont(name: "Chalkduster", size: 17.0)
+        label.text = "Start this Activity Click the Star !"
+        label.textColor = .systemTeal
+        return label
+    }()
+    
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -102,6 +142,12 @@ class MainViewCell: UICollectionViewCell {
         ])
     }
     
+<<<<<<< HEAD
+=======
+    private func setupdirectionLabel() {
+    }
+    
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
     public func configureCell(){
         
     }

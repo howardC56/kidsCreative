@@ -9,22 +9,31 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    let detailView = DetailView()
+    var imagePicker = UIImagePickerController()
+    
+    
+    
+    override func loadView() {
+        view = detailView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        detailView.submitButton.addTarget(self, action: #selector(submitButtonPressed(_:)), for: .touchUpInside)
     }
-    */
-
+    
+    @objc func submitButtonPressed(_ sender: UIButton) {
+        openCameraOptions()
+    }
+    
+    func openCameraOptions() {
+        // add logic to add photo or video from camera
+    }
+    
+    
+    
+    
 }
+

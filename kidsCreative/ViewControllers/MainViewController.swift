@@ -24,11 +24,14 @@ class MainViewController: UIViewController {
         mainView.collectionView.register(MainViewCell.self, forCellWithReuseIdentifier: "mainViewCell")
     }
 
-
 }
 
 //MARK: UICollectionView DataSource Extension
+<<<<<<< HEAD
 extension MainView: UICollectionViewDataSource {
+=======
+extension MainViewController: UICollectionViewDataSource {
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 6
     }
@@ -40,7 +43,11 @@ extension MainView: UICollectionViewDataSource {
     }
 }
 //MARK: UICollectionView Delegate Extension
+<<<<<<< HEAD
 extension MainView: UICollectionViewDelegateFlowLayout {
+=======
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
         let itemWidth: CGFloat = maxSize.width
@@ -48,9 +55,17 @@ extension MainView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
+<<<<<<< HEAD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         <#code#>
     }
     
 }
 
+=======
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        <#code#>
+//    }
+    
+}
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
