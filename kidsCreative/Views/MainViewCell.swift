@@ -3,7 +3,11 @@
 //  kidsCreative
 //
 <<<<<<< HEAD
+<<<<<<< HEAD
 //  Created by Margiett Gil on 4/14/20.
+=======
+//  Created by Howard Chang on 4/15/20.
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 =======
 //  Created by Howard Chang on 4/15/20.
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
@@ -13,12 +17,18 @@
 import UIKit
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 protocol ContinueCellDelegate: AnyObject {
     func didSelectMoreButton(_ savedArticleCell: MainViewCell)
 }
 
 
+<<<<<<< HEAD
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
+=======
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 class MainViewCell: UICollectionViewCell {
     
@@ -51,6 +61,7 @@ class MainViewCell: UICollectionViewCell {
     
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     public lazy var circleImage: UIImageView = {
         let imageview = UIImageView()
         imageview.image = UIImage(systemName: "circle")
@@ -61,6 +72,8 @@ class MainViewCell: UICollectionViewCell {
     }()
     
 =======
+=======
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
     public lazy var circleImage: UIButton = {
         let starbutton = UIButton()
         starbutton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -86,6 +99,9 @@ class MainViewCell: UICollectionViewCell {
         return label
     }()
     
+<<<<<<< HEAD
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
+=======
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -143,6 +159,12 @@ class MainViewCell: UICollectionViewCell {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    private func setupdirectionLabel() {
+    }
+    
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 =======
     private func setupdirectionLabel() {
     }

@@ -18,10 +18,13 @@
 		8889507924452D24003DDE1E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507824452D24003DDE1E /* MainView.swift */; };
 		8889507C24452D3C003DDE1E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507B24452D3C003DDE1E /* DetailView.swift */; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		8889507E24452F7A003DDE1E /* DataBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507D24452F7A003DDE1E /* DataBaseService.swift */; };
 		9F827CE3244647D80031E728 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9F827CE2244647D80031E728 /* GoogleService-Info.plist */; };
 		9FAA32D52446A063007715F2 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA32D42446A063007715F2 /* MainViewCell.swift */; };
 =======
+=======
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 		8889507E24452F7A003DDE1E /* FireBaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889507D24452F7A003DDE1E /* FireBaseDataService.swift */; };
 		8889508F244650F0003DDE1E /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889508E244650F0003DDE1E /* Activity.swift */; };
 		88895093244799E1003DDE1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88895092244799E1003DDE1E /* GoogleService-Info.plist */; };
@@ -30,6 +33,9 @@
 		B7B513B6244660D8001D392A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B513B5244660D8001D392A /* CoreDataManager.swift */; };
 		B7B513B9244661F7001D392A /* MediaObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B513B7244661F7001D392A /* MediaObject+CoreDataClass.swift */; };
 		B7B513BA244661F7001D392A /* MediaObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B513B8244661F7001D392A /* MediaObject+CoreDataProperties.swift */; };
+<<<<<<< HEAD
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
+=======
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 /* End PBXBuildFile section */
 
@@ -47,15 +53,21 @@
 		8889507824452D24003DDE1E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8889507B24452D3C003DDE1E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 		8889507D24452F7A003DDE1E /* DataBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseService.swift; sourceTree = "<group>"; };
 		9F827CE2244647D80031E728 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9FAA32D42446A063007715F2 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 =======
+=======
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 		8889507D24452F7A003DDE1E /* FireBaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseDataService.swift; sourceTree = "<group>"; };
 		8889508E244650F0003DDE1E /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		88895092244799E1003DDE1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8889509424479C30003DDE1E /* DetailCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCVCell.swift; sourceTree = "<group>"; };
 		8889509624479D57003DDE1E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
+=======
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 		A3C3BB50E2379422373B7AA3 /* Pods-kidsCreative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsCreative.release.xcconfig"; path = "Target Support Files/Pods-kidsCreative/Pods-kidsCreative.release.xcconfig"; sourceTree = "<group>"; };
 		B7B513B5244660D8001D392A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -113,7 +125,11 @@
 				8889507724452CF3003DDE1E /* ViewControllers */,
 				8889506A24452C6A003DDE1E /* Assets.xcassets */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				9F827CE2244647D80031E728 /* GoogleService-Info.plist */,
+=======
+				88895092244799E1003DDE1E /* GoogleService-Info.plist */,
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 =======
 				88895092244799E1003DDE1E /* GoogleService-Info.plist */,
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
@@ -244,7 +260,11 @@
 				8889506E24452C6A003DDE1E /* LaunchScreen.storyboard in Resources */,
 				8889506B24452C6A003DDE1E /* Assets.xcassets in Resources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				9F827CE3244647D80031E728 /* GoogleService-Info.plist in Resources */,
+=======
+				88895093244799E1003DDE1E /* GoogleService-Info.plist in Resources */,
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 =======
 				88895093244799E1003DDE1E /* GoogleService-Info.plist in Resources */,
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
@@ -301,7 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				9FAA32D52446A063007715F2 /* MainViewCell.swift in Sources */,
+=======
+				8889509724479D57003DDE1E /* MainViewCell.swift in Sources */,
+				B7B513BA244661F7001D392A /* MediaObject+CoreDataProperties.swift in Sources */,
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 =======
 				8889509724479D57003DDE1E /* MainViewCell.swift in Sources */,
 				B7B513BA244661F7001D392A /* MediaObject+CoreDataProperties.swift in Sources */,

@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
         mainView.collectionView.register(MainViewCell.self, forCellWithReuseIdentifier: "mainViewCell")
     }
 
+<<<<<<< HEAD
 }
 
 //MARK: UICollectionView DataSource Extension
@@ -63,9 +64,37 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 }
 
 =======
+=======
+}
+
+//MARK: UICollectionView DataSource Extension
+extension MainViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainViewCell", for: indexPath) as? MainViewCell else {
+            fatalError("could not downcast to MainViewCell")
+        }
+        return cell
+    }
+}
+//MARK: UICollectionView Delegate Extension
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxSize: CGSize = UIScreen.main.bounds.size
+        let itemWidth: CGFloat = maxSize.width
+        let itemHeight: CGFloat = maxSize.height * 0.75 // 75%
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
+    
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        <#code#>
 //    }
     
 }
+<<<<<<< HEAD
+>>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
+=======
 >>>>>>> bcba409d06d1cd30178118c312e7ea756c761b66
