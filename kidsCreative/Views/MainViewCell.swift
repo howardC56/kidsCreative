@@ -8,12 +8,10 @@
 
 import UIKit
 
-protocol ContinueCellDelegate: AnyObject {
-    func didSelectMoreButton(_ savedArticleCell: MainViewCell)
-}
-
 
 class MainViewCell: UICollectionViewCell {
+    
+    private var currentActivity: Activity!
     
     public lazy var dateDay: UILabel = {
         let label = UILabel()
@@ -46,18 +44,13 @@ class MainViewCell: UICollectionViewCell {
     public lazy var circleImage: UIButton = {
         let starbutton = UIButton()
         starbutton.setImage(UIImage(systemName: "star"), for: .normal)
-        starbutton.addTarget(self, action: #selector(moreButtonPressed(_ :)), for: .touchUpInside)
-        //imageview.image = UIImage(systemName: "circle")
+    
         starbutton.contentMode = .scaleAspectFill
         starbutton.tintColor = .systemTeal
         return starbutton
         
     }()
     
-    @objc
-    private func moreButtonPressed(_ sender: UIButton) {
-        
-    }
     
     public lazy var statementLabel: UILabel = {
         let label = UILabel()
@@ -123,10 +116,12 @@ class MainViewCell: UICollectionViewCell {
         ])
     }
     
-    private func setupdirectionLabel() {
-    }
+   
     
-    public func configureCell(){
+    public func configureCell(for savedActivity: Activity) {
+        currentActivity = savedActivity
+        dateDay.text = savedActivity.number.description
+        nameOfActivity.text = savedActivity.name
         
     }
     

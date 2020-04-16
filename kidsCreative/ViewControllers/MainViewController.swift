@@ -10,6 +10,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    private var savedActivity = [Activity]() {
+        didSet {
+            mainView.collectionView.reloadData()
+        }
+    }
+    
     private let mainView = MainView()
     
     override func loadView() {
@@ -42,13 +48,19 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
-        let itemWidth: CGFloat = maxSize.width
+        let spacingBetweenItems: CGFloat = 8
+        let numberOfItems: CGFloat = 3
+        
         let itemHeight: CGFloat = maxSize.height * 0.75 // 75%
+        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
+        let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activity = savedActivity[indexPath.row]
+        let detailVC = DetailViewController()
+        
+    }
     
 }
