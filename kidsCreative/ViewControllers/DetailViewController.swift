@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 
 class DetailViewController: UIViewController {
     
     let detailView = DetailView()
     var imagePicker = UIImagePickerController()
+    var activity: Activity?
     
+    private lazy var imagePickerController: UIImagePickerController = {
+        let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)
+        let pickerController = UIImagePickerController()
+        pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
+        pickerController.delegate = self
+        return pickerController
+    }()
     
-    private var mediaObjects = [Activity]() {
+    private var mediaObjects = [MediaObject]() {
         didSet {
             detailView.collectionView.reloadData()
         }
@@ -32,18 +42,51 @@ class DetailViewController: UIViewController {
         detailView.collectionView.delegate = self
         detailView.submitButton.addTarget(self, action: #selector(submitButtonPressed(_:)), for: .touchUpInside)
         detailView.collectionView.register(DetailCVCell.self, forCellWithReuseIdentifier: "detailCVC")
+        view.backgroundColor = .white
+        updateUI()
+    }
+    
+    private func updateUI() {
+        guard let activity = activity else { fatalError("No Activity") }
+        detailView.activityTitle.text = activity.name
+        detailView.activityDescription.text = activity.description
+        detailView.getStarted.text = activity.directions
     }
     
     @objc func submitButtonPressed(_ sender: UIButton) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let photoAction = UIAlertAction(title: "Photos", style: .default)
-        let videoAction = UIAlertAction(title: "Videos", style: .default)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
+    
+    
+    private func playRandomVideo() {
+        // we want all non-nill media objects from the media object array
+        // compact map - it removes all non nill values
+        let videoDataObject = mediaObjects.compactMap { $0.videoData }
         
-        alertController.addAction(photoAction)
-        alertController.addAction(videoAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
+        // get a random video URL
+        if let videoObject = videoDataObject.randomElement(),
+            let videoURL = videoObject.convertToURL() {
+            let player = AVPlayer(url: videoURL)
+            
+            // create a sublayer
+            let playerLayer = AVPlayerLayer(player: player)
+            
+            // set it's frame
+            playerLayer.frame = view.bounds  // takes up the entire header view
+            
+            // set video aspect ratio
+            playerLayer.videoGravity = .resizeAspect
+            
+            // remove all sublayers from headerView
+            view.layer.sublayers?.removeAll()
+            
+            // add the playerLayer to the headerView's layer
+            view.layer.addSublayer(playerLayer)
+            
+            // play video
+            player.play()
+        }
     }
     
 }
@@ -57,12 +100,52 @@ extension DetailViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailCVC", for: indexPath) as? DetailCVCell else {
             fatalError("could not dequeue a MediaCell")
         }
-        let mediaObject = mediaObjects[indexPath.row]
-        cell.configureCell(for: mediaObject)
+        //let mediaObject = mediaObjects[indexPath.row]
+        // cell.configureCell(for: mediaObject)
+        cell.backgroundColor = .white
         return cell
     }
 }
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxSize: CGSize = UIScreen.main.bounds.size // max width & height of current device
+        let itemWidth: CGFloat = maxSize.width
+        let itemHeight: CGFloat = maxSize.height * 0.40
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+    }
 }
+
+
+extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else {
+            return
+        }
+        
+        switch mediaType {
+        case "public.image":
+            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageData = originalImage.jpegData(compressionQuality: 1.0) {
+                let mediaObject = MediaObject(
+                mediaObjects.append(mediaObject)
+            }
+            break
+        case "public.movie":
+            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+                print("mediaURL: \(mediaURL)")
+                let mediaObject = MediaObject()
+                mediaObjects.append(mediaObject)
+            }
+        default:
+            print("Unsupported media typed")
+        }
+        
+        print("mediaType: \(mediaType)")
+        picker.dismiss(animated: true)
+    }
+}
+

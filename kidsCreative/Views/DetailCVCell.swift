@@ -10,6 +10,10 @@ import UIKit
 
 class DetailCVCell: UICollectionViewCell {
     
+    public lazy var mediaImageView: UIImageView  = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     
     override init(frame: CGRect) {
@@ -22,17 +26,31 @@ class DetailCVCell: UICollectionViewCell {
         commonInit()
     }
     
-    func configureCell(for activity: Activity) {
-//        if let imageData = activity  {
-//            // converts Data object
-//            
-//        }
-        
-        //TODO: Create a video preview thumbnail
+    func configureCell(for mediaObject: MediaObject) {
+        if let imageData = mediaObject.imageData {
+            mediaImageView.image = UIImage(data: imageData)
+        }
+        if let videoURL = mediaObject.videoData?.convertToURL() {
+            let image = videoURL.videoPreviewThumbnail() ?? UIImage(systemName: "heart")
+            mediaImageView.image = image
+        }
     }
     
+    
     private func commonInit() {
-        
+        setupMediaImage()
     }
+    
+    private func setupMediaImage() {
+        addSubview(mediaImageView)
+        mediaImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mediaImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            mediaImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            mediaImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            mediaImageView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
     
 }

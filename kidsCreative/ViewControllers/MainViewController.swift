@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     override func loadView() {
         view = mainView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
@@ -51,12 +51,11 @@ class MainViewController: UIViewController {
             case .success(let item):
                 self?.savedActivity = item
             }
-
+        }
+        
+        
+        
     }
-    
-    
-
-}
 }
 //MARK: UICollectionView DataSource Extension
 extension MainViewController: UICollectionViewDataSource {
@@ -90,11 +89,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         let activity = savedActivity[indexPath.row]
         let detailVC = DetailViewController()
         
-        detailVC.activities = activity
+        detailVC.activity = activity
         navigationController?.pushViewController(detailVC, animated: true)
-        
-        
-        
     }
     
 }
