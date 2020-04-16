@@ -28,12 +28,7 @@ class MainView: UIView {
         return cv
     }()
     
-    public lazy var imageFish: UIImageView = {
-        let fish = UIImageView()
-        fish.image = UIImage(named: "art")
-        fish.contentMode = .scaleAspectFill
-        return fish
-    }()
+ 
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -46,7 +41,7 @@ class MainView: UIView {
     private func commonInit(){
         setupImage()
         setupCollectionViewConstraints()
-        setupFishImage()
+        
     }
     
     private func setupImage(){
@@ -72,16 +67,5 @@ class MainView: UIView {
         ])
     }
     
-    private func setupFishImage() {
-        addSubview(imageFish)
-        imageFish.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageFish.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
-            imageFish.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageFish.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageFish.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
-            
-        
-        ])
-    }
+
 }

@@ -38,6 +38,7 @@ class MainViewCell: UICollectionViewCell {
         label.font = UIFont(name: "Chalkduster", size: 15)
         label.text = "Margiett"
         label.textColor = #colorLiteral(red: 0.04712193459, green: 0.7893118262, blue: 0.9092960954, alpha: 1)
+        label.textAlignment = .center
         return label
     }()
     
@@ -49,26 +50,10 @@ class MainViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    
-    public lazy var circleImage: UIButton = {
-        let starbutton = UIButton()
-        starbutton.setImage(UIImage(systemName: "star"), for: .normal)
-    
-        starbutton.contentMode = .scaleAspectFill
-        starbutton.tintColor = .systemTeal
-        return starbutton
-        
-    }()
+
     
     
-    public lazy var statementLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 4
-        label.font = UIFont(name: "Chalkduster", size: 17.0)
-        label.text = "Start this Activity Click the Star !"
-        label.textColor = .systemTeal
-        return label
-    }()
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,9 +67,8 @@ class MainViewCell: UICollectionViewCell {
     private func commonInit() {
          setupView()
         setupDatedayLabel()
-        setupNameOfActivityLabel()
         setPictureOfActivity()
-        setupCircleImage()
+       setupNameOfActivityLabel()
        
     }
     
@@ -94,8 +78,8 @@ class MainViewCell: UICollectionViewCell {
         addSubview(dateDay)
         dateDay.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dateDay.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            dateDay.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+            dateDay.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            dateDay.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12)
         ])
 
     }
@@ -104,9 +88,9 @@ class MainViewCell: UICollectionViewCell {
         addSubview(nameOfActivity)
         nameOfActivity.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameOfActivity.topAnchor.constraint(equalTo: dateDay.bottomAnchor, constant: 10),
+            nameOfActivity.topAnchor.constraint(equalTo: pictureOfActivity.bottomAnchor, constant: 8),
             nameOfActivity.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-           // nameOfActivity.trailingAnchor.constraint(equalTo: pictureOfActivity.leadingAnchor, constant: 8)
+           nameOfActivity.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
             
         ])
     }
@@ -115,25 +99,16 @@ class MainViewCell: UICollectionViewCell {
         addSubview(pictureOfActivity)
         pictureOfActivity.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pictureOfActivity.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            pictureOfActivity.leadingAnchor.constraint(equalTo: nameOfActivity.trailingAnchor, constant: 10),
-            pictureOfActivity.topAnchor.constraint(equalTo: topAnchor, constant: 40)
+            pictureOfActivity.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pictureOfActivity.centerYAnchor.constraint(equalTo: centerYAnchor),
+            pictureOfActivity.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            pictureOfActivity.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4)
             
 
         ])
     }
     
-    private func setupCircleImage(){ // this is the star under the six little sq
-        addSubview(circleImage)
-        circleImage.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            circleImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            //circleImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            //circleImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            circleImage.topAnchor.constraint(equalTo: pictureOfActivity.bottomAnchor, constant: 8)
-        
-        ])
-    }
+  
     
     private func setupView() {
         addSubview(view)
