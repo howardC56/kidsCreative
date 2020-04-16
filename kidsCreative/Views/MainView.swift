@@ -15,7 +15,7 @@ class MainView: UIView {
     
     public lazy var headlineImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "art")
+        image.image = UIImage(named: "header")
         image.contentMode = .scaleAspectFill
         return image
     }()
@@ -24,7 +24,7 @@ class MainView: UIView {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .systemYellow
+        cv.backgroundColor = .white
         return cv
     }()
     
@@ -51,7 +51,7 @@ class MainView: UIView {
             headlineImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0),
             headlineImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             headlineImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headlineImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.30)
+            headlineImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.10)
         
         ])
     }

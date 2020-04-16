@@ -54,7 +54,7 @@ class DetailViewController: UIViewController {
 
         // load media from core data
         do {
-            mediaObjects = try CoreDataManager.shared.fetchMediaObjects()
+            mediaObjects = try CoreDataManager.shared.fetchMediaObjects().filter { $0.activityName == activity.name }
         } catch {
             print("issue fetching media from core data \(error)")
         }
@@ -63,37 +63,6 @@ class DetailViewController: UIViewController {
     @objc func submitButtonPressed(_ sender: UIButton) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
-    }
-    
-    
-    private func playRandomVideo() {
-        // we want all non-nill media objects from the media object array
-        // compact map - it removes all non nill values
-        let videoDataObject = mediaObjects.compactMap { $0.videoData }
-        
-        // get a random video URL
-        if let videoObject = videoDataObject.randomElement(),
-            let videoURL = videoObject.convertToURL() {
-            let player = AVPlayer(url: videoURL)
-            
-            // create a sublayer
-            let playerLayer = AVPlayerLayer(player: player)
-            
-            // set it's frame
-            playerLayer.frame = view.bounds  // takes up the entire header view
-            
-            // set video aspect ratio
-            playerLayer.videoGravity = .resizeAspect
-            
-            // remove all sublayers from headerView
-            view.layer.sublayers?.removeAll()
-            
-            // add the playerLayer to the headerView's layer
-            view.layer.addSublayer(playerLayer)
-            
-            // play video
-            player.play()
-        }
     }
     
 }

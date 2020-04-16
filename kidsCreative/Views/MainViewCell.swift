@@ -17,8 +17,13 @@ class MainViewCell: UICollectionViewCell {
     public lazy var view: UIView = {
         let layout = UIView()
         layout.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        //layout.isHidden = true
-        layout.layer.cornerRadius = 10
+        layout.layer.masksToBounds = false
+        layout.clipsToBounds = false
+        layout.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) //UIColor.black.cgColor
+        layout.layer.shadowOpacity = 0.5
+        layout.layer.shadowOffset = CGSize.zero
+        layout.layer.shadowRadius = 5
+        layout.layer.cornerRadius = 8
         return layout
     }()
     
