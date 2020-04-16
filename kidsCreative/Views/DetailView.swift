@@ -10,6 +10,15 @@ import UIKit
 
 class DetailView: UIView {
     
+    private lazy var activityImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "art")
+        iv.layer.cornerRadius = 10
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
     public lazy var activityTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -57,6 +66,7 @@ class DetailView: UIView {
     
     
     private func commonInit() {
+        imageSetup()
         titleSetup()
         descriptionSetup()
         getStartedSetup()
@@ -64,11 +74,23 @@ class DetailView: UIView {
         cvSetup()
     }
     
+    private func imageSetup() {
+        addSubview(activityImage)
+        activityImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            activityImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            activityImage.heightAnchor.constraint(equalTo: activityImage.widthAnchor),
+            activityImage.centerXAnchor.constraint(equalTo: centerXAnchor)
+            
+        ])
+        
+    }
     private func titleSetup() {
         addSubview(activityTitle)
         activityTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            activityTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            activityTitle.topAnchor.constraint(equalTo: activityImage.bottomAnchor, constant: 20),
             activityTitle.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             activityTitle.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
