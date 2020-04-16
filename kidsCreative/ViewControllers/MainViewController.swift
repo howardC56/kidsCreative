@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
+
 
 class MainViewController: UIViewController {
+    
+    private let db = FireBaseDataService()
     
     private var savedActivity = [Activity]() {
         didSet {
@@ -29,14 +33,34 @@ class MainViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.register(MainViewCell.self, forCellWithReuseIdentifier: "mainViewCell")
         navigationItem.title = "Kid's Activity"
+        loadData()
     }
+    
+    private func loadData() {
+        fetchActivity()
+    }
+    
+    @objc
+    private func fetchActivity(){
+        db.getActivity(item: Activity.self) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+              print("failed to fetch")
+            case .success(let item):
+                self?.savedActivity = item
+            }
+
+    }
+    
+    
 
 }
-
+}
 //MARK: UICollectionView DataSource Extension
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return savedActivity.count
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainViewCell", for: indexPath) as? MainViewCell else {
