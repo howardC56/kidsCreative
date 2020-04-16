@@ -22,6 +22,7 @@
 		88895093244799E1003DDE1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88895092244799E1003DDE1E /* GoogleService-Info.plist */; };
 		8889509524479C31003DDE1E /* DetailCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889509424479C30003DDE1E /* DetailCVCell.swift */; };
 		8889509724479D57003DDE1E /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889509624479D57003DDE1E /* MainViewCell.swift */; };
+		9F37802A24481911007C174E /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F37802924481911007C174E /* UIViewController+Alerts.swift */; };
 		B7B513B6244660D8001D392A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B513B5244660D8001D392A /* CoreDataManager.swift */; };
 		B7B513B9244661F7001D392A /* MediaObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B513B7244661F7001D392A /* MediaObject+CoreDataClass.swift */; };
 		B7B513BA244661F7001D392A /* MediaObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B513B8244661F7001D392A /* MediaObject+CoreDataProperties.swift */; };
@@ -45,6 +46,7 @@
 		88895092244799E1003DDE1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8889509424479C30003DDE1E /* DetailCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCVCell.swift; sourceTree = "<group>"; };
 		8889509624479D57003DDE1E /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		9F37802924481911007C174E /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		A3C3BB50E2379422373B7AA3 /* Pods-kidsCreative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kidsCreative.release.xcconfig"; path = "Target Support Files/Pods-kidsCreative/Pods-kidsCreative.release.xcconfig"; sourceTree = "<group>"; };
 		B7B513B5244660D8001D392A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B7B513B7244661F7001D392A /* MediaObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaObject+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -119,9 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				8889507824452D24003DDE1E /* MainView.swift */,
+				8889509624479D57003DDE1E /* MainViewCell.swift */,
 				8889507B24452D3C003DDE1E /* DetailView.swift */,
 				8889509424479C30003DDE1E /* DetailCVCell.swift */,
-				8889509624479D57003DDE1E /* MainViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,6 +154,7 @@
 				8889505E24452C68003DDE1E /* AppDelegate.swift */,
 				8889506024452C68003DDE1E /* SceneDelegate.swift */,
 				8889506C24452C6A003DDE1E /* LaunchScreen.storyboard */,
+				9F37802924481911007C174E /* UIViewController+Alerts.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				8889507624452CEF003DDE1E /* DetailViewController.swift in Sources */,
 				8889506124452C68003DDE1E /* SceneDelegate.swift in Sources */,
 				B7B513B6244660D8001D392A /* CoreDataManager.swift in Sources */,
+				9F37802A24481911007C174E /* UIViewController+Alerts.swift in Sources */,
 				8889507E24452F7A003DDE1E /* FireBaseDataService.swift in Sources */,
 				8889508F244650F0003DDE1E /* Activity.swift in Sources */,
 				8889507E24452F7A003DDE1E /* FireBaseDataService.swift in Sources */,
