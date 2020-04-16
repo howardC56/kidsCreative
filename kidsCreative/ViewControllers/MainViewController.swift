@@ -45,7 +45,9 @@ class MainViewController: UIViewController {
         db.getActivity(item: Activity.self) { [weak self] (result) in
             switch result {
             case .failure(let error):
-              print("failed to fetch")
+                DispatchQueue.main.async {
+                    self?.showAlert(title: "Fetching Error", message: error.localizedDescription)
+                }
             case .success(let item):
                 self?.savedActivity = item
             }
@@ -66,6 +68,8 @@ extension MainViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainViewCell", for: indexPath) as? MainViewCell else {
             fatalError("could not downcast to MainViewCell")
         }
+        let savedActivities = savedActivity[indexPath.row]
+        cell.configureCell(for: savedActivities)
         return cell
     }
 }
