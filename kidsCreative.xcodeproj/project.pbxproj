@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		61B9FB783267E7605CA5077D /* Pods_kidsCreative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350CC576EF380E4818D42578 /* Pods_kidsCreative.framework */; };
+		63CC900A2448CC5100B511ED /* Data+ConvertToURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC90092448CC5100B511ED /* Data+ConvertToURL.swift */; };
+		63CC900C2448DC3F00B511ED /* URL+VideoPreviewThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC900B2448DC3F00B511ED /* URL+VideoPreviewThumbnail.swift */; };
 		8889505F24452C68003DDE1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889505E24452C68003DDE1E /* AppDelegate.swift */; };
 		8889506124452C68003DDE1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889506024452C68003DDE1E /* SceneDelegate.swift */; };
 		8889506324452C68003DDE1E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8889506224452C68003DDE1E /* MainViewController.swift */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		350CC576EF380E4818D42578 /* Pods_kidsCreative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kidsCreative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63CC90092448CC5100B511ED /* Data+ConvertToURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+ConvertToURL.swift"; sourceTree = "<group>"; };
+		63CC900B2448DC3F00B511ED /* URL+VideoPreviewThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+VideoPreviewThumbnail.swift"; sourceTree = "<group>"; };
 		8889505B24452C68003DDE1E /* kidsCreative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kidsCreative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8889505E24452C68003DDE1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8889506024452C68003DDE1E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +147,9 @@
 				B7B513B8244661F7001D392A /* MediaObject+CoreDataProperties.swift */,
 				8889506724452C68003DDE1E /* kidsCreative.xcdatamodeld */,
 				B7B513B5244660D8001D392A /* CoreDataManager.swift */,
+				63CC90092448CC5100B511ED /* Data+ConvertToURL.swift */,
 				8889508E244650F0003DDE1E /* Activity.swift */,
+				63CC900B2448DC3F00B511ED /* URL+VideoPreviewThumbnail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,10 +290,12 @@
 			files = (
 				8889509724479D57003DDE1E /* MainViewCell.swift in Sources */,
 				B7B513BA244661F7001D392A /* MediaObject+CoreDataProperties.swift in Sources */,
+				63CC900A2448CC5100B511ED /* Data+ConvertToURL.swift in Sources */,
 				8889506324452C68003DDE1E /* MainViewController.swift in Sources */,
 				8889507924452D24003DDE1E /* MainView.swift in Sources */,
 				8889505F24452C68003DDE1E /* AppDelegate.swift in Sources */,
 				B7B513B9244661F7001D392A /* MediaObject+CoreDataClass.swift in Sources */,
+				63CC900C2448DC3F00B511ED /* URL+VideoPreviewThumbnail.swift in Sources */,
 				8889509524479C31003DDE1E /* DetailCVCell.swift in Sources */,
 				8889507C24452D3C003DDE1E /* DetailView.swift in Sources */,
 				8889507624452CEF003DDE1E /* DetailViewController.swift in Sources */,
@@ -437,7 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H39KTTHR8M;
 				INFOPLIST_FILE = kidsCreative/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H39KTTHR8M;
 				INFOPLIST_FILE = kidsCreative/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

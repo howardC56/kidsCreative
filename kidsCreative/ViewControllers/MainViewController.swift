@@ -25,10 +25,10 @@ class MainViewController: UIViewController {
     override func loadView() {
         view = mainView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .white
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
         mainView.collectionView.register(MainViewCell.self, forCellWithReuseIdentifier: "mainViewCell")
@@ -51,12 +51,11 @@ class MainViewController: UIViewController {
             case .success(let item):
                 self?.savedActivity = item
             }
-
+        }
+        
+        
+        
     }
-    
-    
-
-}
 }
 //MARK: UICollectionView DataSource Extension
 extension MainViewController: UICollectionViewDataSource {
@@ -76,13 +75,13 @@ extension MainViewController: UICollectionViewDataSource {
 //MARK: UICollectionView Delegate Extension
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxSize: CGSize = UIScreen.main.bounds.size
-        let spacingBetweenItems: CGFloat = 5
-        let numberOfItems: CGFloat = 2
-        let itemHeight: CGFloat = maxSize.height * 0.18// 75%
-        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
-        let itemWidth: CGFloat =  (maxSize.width - totalSpacing) / numberOfItems
-        return CGSize(width: itemWidth, height: itemHeight)
+        
+        let maxSize = UIScreen.main.bounds
+    
+        let height = maxSize.height * 0.25
+        let width = maxSize.width * 0.45
+        
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -90,11 +89,11 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         let activity = savedActivity[indexPath.row]
         let detailVC = DetailViewController()
         
-        detailVC.activities = activity
+        detailVC.activity = activity
         navigationController?.pushViewController(detailVC, animated: true)
-        
-        
-        
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+              return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+          }
 }

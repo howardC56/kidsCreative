@@ -18,7 +18,7 @@ class CoreDataManager {
     
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private func createMediaObject(activityName: String, imageData: Data, videoData: Data?) throws -> MediaObject {
+     func createMediaObject(activityName: String, imageData: Data, videoData: Data?) throws -> MediaObject {
         let mediaObject = MediaObject(entity: MediaObject.entity(), insertInto: context)
         
         mediaObject.activityName = activityName
@@ -42,7 +42,7 @@ class CoreDataManager {
         
     }
     
-    private func fetchMediaObjects() throws -> [MediaObject] {
+     func fetchMediaObjects() throws -> [MediaObject] {
         
         do {
             mediaObjects = try context.fetch(MediaObject.fetchRequest())
