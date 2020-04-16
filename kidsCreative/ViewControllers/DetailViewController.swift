@@ -51,6 +51,13 @@ class DetailViewController: UIViewController {
         detailView.activityTitle.text = activity.name
         detailView.activityDescription.text = activity.description
         detailView.getStarted.text = activity.directions
+
+        // load media from core data
+        do {
+            mediaObjects = try CoreDataManager.shared.fetchMediaObjects()
+        } catch {
+            print("issue fetching media from core data \(error)")
+        }
     }
     
     @objc func submitButtonPressed(_ sender: UIButton) {
@@ -100,8 +107,8 @@ extension DetailViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailCVC", for: indexPath) as? DetailCVCell else {
             fatalError("could not dequeue a MediaCell")
         }
-        //let mediaObject = mediaObjects[indexPath.row]
-        // cell.configureCell(for: mediaObject)
+        let mediaObject = mediaObjects[indexPath.row]
+        cell.configureCell(for: mediaObject)
         cell.backgroundColor = .white
         return cell
     }
@@ -110,9 +117,8 @@ extension DetailViewController: UICollectionViewDataSource {
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size // max width & height of current device
-        let itemWidth: CGFloat = maxSize.width
-        let itemHeight: CGFloat = maxSize.height * 0.40
-        return CGSize(width: itemWidth, height: itemHeight)
+        let itemWidth: CGFloat = maxSize.width * 0.30
+        return CGSize(width: itemWidth, height: itemWidth)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -123,6 +129,7 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
 
 extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else {
             return
         }
@@ -130,21 +137,38 @@ extension DetailViewController: UIImagePickerControllerDelegate, UINavigationCon
         switch mediaType {
         case "public.image":
             if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageData = originalImage.jpegData(compressionQuality: 1.0) {
-                let mediaObject = MediaObject(
-                mediaObjects.append(mediaObject)
+                
+                do {
+                    let mediaObject = try CoreDataManager.shared.createMediaObject(activityName: activity?.name ?? "No Activity Name", imageData: imageData, videoData: nil)
+                    mediaObjects.append(mediaObject)
+                } catch {
+                    print("failed to created media object from image: \(error)")
+                }
             }
-            break
+            
         case "public.movie":
-            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-                print("mediaURL: \(mediaURL)")
-                let mediaObject = MediaObject()
-                mediaObjects.append(mediaObject)
+            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL, let image = mediaURL.videoPreviewThumbnail(), let imageData = image.jpegData(compressionQuality: 1.0) {
+                
+                var videoData: Data!
+                do {
+                    videoData = try Data(contentsOf: mediaURL)
+                } catch {
+                    print("failed to convert url to data with error: \(error)")
+                }
+                
+                do {
+                    let mediaObject = try CoreDataManager.shared.createMediaObject(activityName: activity?.name ?? "No Activity Name", imageData: imageData, videoData: videoData)
+                    mediaObjects.append(mediaObject)
+                    
+                } catch {
+                    print("failed to created media object from video: \(error)")
+                }
             }
+            
         default:
             print("Unsupported media typed")
         }
         
-        print("mediaType: \(mediaType)")
         picker.dismiss(animated: true)
     }
 }
