@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
         mainView.collectionView.register(MainViewCell.self, forCellWithReuseIdentifier: "mainViewCell")
+        navigationItem.title = "Kid's Activity"
     }
 
 }
@@ -49,9 +50,8 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
         let spacingBetweenItems: CGFloat = 8
-        let numberOfItems: CGFloat = 3
-        
-        let itemHeight: CGFloat = maxSize.height * 0.75 // 75%
+        let numberOfItems: CGFloat = 2
+        let itemHeight: CGFloat = maxSize.height * 0.10// 75%
         let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
         let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
