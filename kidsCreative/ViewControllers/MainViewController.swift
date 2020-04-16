@@ -78,10 +78,10 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         
         let maxSize = UIScreen.main.bounds
     
-        let height = maxSize.height * 0.25
+        //let height = maxSize.height * 0.25
         let width = maxSize.width * 0.45
         
-        return CGSize(width: width, height: height)
+        return CGSize(width: width, height: width)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

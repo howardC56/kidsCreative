@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
     
     private func updateUI() {
         guard let activity = activity else { fatalError("No Activity") }
-        detailView.activityTitle.text = activity.name
+        detailView.activityTitle.text = activity.name.capitalized
         detailView.activityDescription.text = activity.description
         detailView.getStarted.text = activity.directions
 

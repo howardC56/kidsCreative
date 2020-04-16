@@ -22,26 +22,33 @@ class DetailView: UIView {
     public lazy var activityTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)
+
         return label
     }()
     
     public lazy var activityDescription: UILabel = {
         let activityDescription = UILabel()
         activityDescription.numberOfLines = 0
+        activityDescription.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
+
         return activityDescription
     }()
     
     public lazy var getStarted: UILabel = {
         let getStartedText = UILabel()
         getStartedText.numberOfLines = 0
+        getStartedText.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
+
         return getStartedText
     }()
     
     public lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("  Add Your Work  ", for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+    
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+        button.setTitleColor(.link, for: .normal)
         return button
     }()
     
@@ -50,7 +57,7 @@ class DetailView: UIView {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 300, height: 300)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        cv.backgroundColor = .white
         return cv
     }()
     
