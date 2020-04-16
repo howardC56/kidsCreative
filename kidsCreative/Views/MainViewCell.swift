@@ -35,7 +35,7 @@ class MainViewCell: UICollectionViewCell {
     public lazy var nameOfActivity: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont(name: "Chalkduster", size: 17)
+        label.font = UIFont(name: "Chalkduster", size: 15)
         label.text = "Margiett"
         label.textColor = #colorLiteral(red: 0.04712193459, green: 0.7893118262, blue: 0.9092960954, alpha: 1)
         return label
