@@ -77,17 +77,23 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size
-        let spacingBetweenItems: CGFloat = 8
+        let spacingBetweenItems: CGFloat = 5
         let numberOfItems: CGFloat = 2
-        let itemHeight: CGFloat = maxSize.height * 0.10// 75%
+        let itemHeight: CGFloat = maxSize.height * 0.18// 75%
         let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
-        let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
+        let itemWidth: CGFloat =  (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // programmatically Segue
         let activity = savedActivity[indexPath.row]
         let detailVC = DetailViewController()
+        
+        detailVC.activities = activity
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+        
         
     }
     
