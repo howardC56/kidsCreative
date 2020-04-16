@@ -12,6 +12,8 @@ class DetailCVCell: UICollectionViewCell {
     
     public lazy var mediaImageView: UIImageView  = {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
         return imageView
     }()
     

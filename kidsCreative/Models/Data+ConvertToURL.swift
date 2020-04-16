@@ -24,6 +24,7 @@ extension Data {
         
         do {
             try self.write(to: tempURL, options: [.atomic])
+            return tempURL
         } catch {
             print("failed to write (save) video to temp file with error: \(error)")
         }

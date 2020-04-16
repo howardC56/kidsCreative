@@ -109,7 +109,6 @@ extension DetailViewController: UICollectionViewDataSource {
         }
         let mediaObject = mediaObjects[indexPath.row]
         cell.configureCell(for: mediaObject)
-        cell.backgroundColor = .white
         return cell
     }
 }
@@ -117,12 +116,28 @@ extension DetailViewController: UICollectionViewDataSource {
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize: CGSize = UIScreen.main.bounds.size // max width & height of current device
-        let itemWidth: CGFloat = maxSize.width * 0.30
+        let itemWidth: CGFloat = maxSize.width * 0.40
         return CGSize(width: itemWidth, height: itemWidth)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        let mediaObject = mediaObjects[indexPath.row]
+        guard let videoURL = mediaObject.videoData?.convertToURL() else {
+            return
+        }
+        
+        let playerViewController = AVPlayerViewController() // View controller that we will present at the end
+        let player = AVPlayer(url: videoURL)
+        playerViewController.player = player
+        present(playerViewController, animated: true) {
+            // use the completion handler of play video automattically
+            player.play()
+        }
     }
 }
 
