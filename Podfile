@@ -8,6 +8,7 @@ target 'kidsCreative' do
   # Pods for kidsCreative
  pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+
   
   pod 'Firebase/Storage'
   pod 'Kingfisher'

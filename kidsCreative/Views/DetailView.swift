@@ -10,24 +10,38 @@ import UIKit
 
 class DetailView: UIView {
     
+    private lazy var activityImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "art")
+        iv.layer.cornerRadius = 10
+        iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
+        return iv
+    }()
+    
     public lazy var activityTitle: UILabel = {
         let label = UILabel()
-        label.center = self.center
+        label.textAlignment = .center
         return label
     }()
     
-    public lazy var activityDescription: UITextView = {
-        let activityDescription = UITextView()
+    public lazy var activityDescription: UILabel = {
+        let activityDescription = UILabel()
+        activityDescription.numberOfLines = 0
         return activityDescription
     }()
     
-    public lazy var getStarted: UITextView = {
-        let getStartedText = UITextView()
+    public lazy var getStarted: UILabel = {
+        let getStartedText = UILabel()
+        getStartedText.numberOfLines = 0
         return getStartedText
     }()
     
     public lazy var submitButton: UIButton = {
         let button = UIButton()
+        button.setTitle("  Add Your Work  ", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         return button
     }()
     
@@ -36,6 +50,7 @@ class DetailView: UIView {
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 300, height: 300)
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        cv.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         return cv
     }()
     
@@ -51,17 +66,31 @@ class DetailView: UIView {
     
     
     private func commonInit() {
+        imageSetup()
         titleSetup()
         descriptionSetup()
         getStartedSetup()
+        submitButtonSetup()
         cvSetup()
     }
     
+    private func imageSetup() {
+        addSubview(activityImage)
+        activityImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            activityImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            activityImage.heightAnchor.constraint(equalTo: activityImage.widthAnchor),
+            activityImage.centerXAnchor.constraint(equalTo: centerXAnchor)
+            
+        ])
+        
+    }
     private func titleSetup() {
         addSubview(activityTitle)
         activityTitle.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            activityTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            activityTitle.topAnchor.constraint(equalTo: activityImage.bottomAnchor, constant: 20),
             activityTitle.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             activityTitle.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
@@ -88,7 +117,7 @@ class DetailView: UIView {
     }
     
     
-    private func submitButtonSetuo() {
+    private func submitButtonSetup() {
         addSubview(submitButton)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -102,8 +131,9 @@ class DetailView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: submitButton.bottomAnchor, constant: 40),
-            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.25)
         ])
     }
     

@@ -8,18 +8,30 @@
 
 import UIKit
 
-protocol ContinueCellDelegate: AnyObject {
-    func didSelectMoreButton(_ savedArticleCell: MainViewCell)
-}
-
 
 class MainViewCell: UICollectionViewCell {
+    
+    private var currentActivity: Activity!
+
+    
+    public lazy var view: UIView = {
+        let layout = UIView()
+        layout.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        layout.layer.masksToBounds = false
+        layout.clipsToBounds = false
+        layout.layer.shadowColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1) //UIColor.black.cgColor
+        layout.layer.shadowOpacity = 0.5
+        layout.layer.shadowOffset = CGSize.zero
+        layout.layer.shadowRadius = 5
+        layout.layer.cornerRadius = 8
+        return layout
+    }()
     
     public lazy var dateDay: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont(name: "Chalkduster", size: 30.0)
-        label.textColor = .systemTeal
+        label.font = UIFont(name: "Chalkduster", size: 20)
+        label.textColor = #colorLiteral(red: 0.05060032755, green: 0.8455864191, blue: 0.8985716701, alpha: 0.9990234375)
         label.text = " 1 "
         return label
         
@@ -27,10 +39,11 @@ class MainViewCell: UICollectionViewCell {
     
     public lazy var nameOfActivity: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 4
-        label.font = UIFont(name: "Chalkduster", size: 22.0)
-        label.text = "Personify Something"
-        label.textColor = .systemTeal
+        label.numberOfLines = 2
+        label.font = UIFont(name: "Chalkduster", size: 15)
+        label.text = "Margiett"
+        label.textColor = #colorLiteral(red: 0.04712193459, green: 0.7893118262, blue: 0.9092960954, alpha: 1)
+        label.textAlignment = .center
         return label
     }()
     
@@ -42,31 +55,10 @@ class MainViewCell: UICollectionViewCell {
         return imageView
     }()
     
+
     
-    public lazy var circleImage: UIButton = {
-        let starbutton = UIButton()
-        starbutton.setImage(UIImage(systemName: "star"), for: .normal)
-        starbutton.addTarget(self, action: #selector(moreButtonPressed(_ :)), for: .touchUpInside)
-        //imageview.image = UIImage(systemName: "circle")
-        starbutton.contentMode = .scaleAspectFill
-        starbutton.tintColor = .systemTeal
-        return starbutton
-        
-    }()
     
-    @objc
-    private func moreButtonPressed(_ sender: UIButton) {
-        
-    }
-    
-    public lazy var statementLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 4
-        label.font = UIFont(name: "Chalkduster", size: 17.0)
-        label.text = "Start this Activity Click the Star !"
-        label.textColor = .systemTeal
-        return label
-    }()
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,55 +70,69 @@ class MainViewCell: UICollectionViewCell {
         commonInit()
     }
     private func commonInit() {
+         setupView()
         setupDatedayLabel()
-        setupNameOfActivityLabel()
         setPictureOfActivity()
-        setupCircleImage()
+       setupNameOfActivityLabel()
+       
     }
     
-    private func setupDatedayLabel() {
+  
+    
+    private func setupDatedayLabel() { // this is the number
         addSubview(dateDay)
         dateDay.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            dateDay.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            dateDay.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+            dateDay.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            dateDay.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12)
         ])
 
     }
     
-    private func setupNameOfActivityLabel() {
+    private func setupNameOfActivityLabel() { // this the discription of the activity
         addSubview(nameOfActivity)
         nameOfActivity.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            nameOfActivity.topAnchor.constraint(equalTo: dateDay.bottomAnchor, constant: 10),
-            nameOfActivity.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+            nameOfActivity.topAnchor.constraint(equalTo: pictureOfActivity.bottomAnchor, constant: 8),
+            nameOfActivity.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+           nameOfActivity.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            
         ])
     }
     
-    private func setPictureOfActivity(){
+    private func setPictureOfActivity(){ // the six little sq
         addSubview(pictureOfActivity)
         pictureOfActivity.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            pictureOfActivity.trailingAnchor.constraint(equalTo: nameOfActivity.leadingAnchor, constant: 15),
-            pictureOfActivity.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+            pictureOfActivity.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pictureOfActivity.centerYAnchor.constraint(equalTo: centerYAnchor),
+            pictureOfActivity.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            pictureOfActivity.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4)
+            
+
         ])
     }
     
-    private func setupCircleImage(){
-        addSubview(circleImage)
-        circleImage.translatesAutoresizingMaskIntoConstraints = false
+  
+    
+    private func setupView() {
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            circleImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            circleImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            circleImage.topAnchor.constraint(equalTo: pictureOfActivity.bottomAnchor, constant: 20)
+            view.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            view.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -8),
+            view.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            view.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 8)
+            
         
         ])
     }
+   
     
-    private func setupdirectionLabel() {
-    }
-    
-    public func configureCell(){
+    public func configureCell(for savedActivity: Activity) {
+        currentActivity = savedActivity
+        dateDay.text = savedActivity.number.description
+        nameOfActivity.text = savedActivity.name
         
     }
     
