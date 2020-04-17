@@ -51,6 +51,7 @@ class DetailViewController: UIViewController {
         detailView.activityTitle.text = activity.name.capitalized
         detailView.activityDescription.text = activity.description
         detailView.getStarted.text = activity.directions
+        detailView.activityImage.image = UIImage(named: activity.number.description)
 
         // load media from core data
         do {

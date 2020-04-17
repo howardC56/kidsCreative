@@ -10,7 +10,7 @@ import UIKit
 
 class DetailView: UIView {
     
-    private lazy var activityImage: UIImageView = {
+    public lazy var activityImage: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "art")
         iv.layer.cornerRadius = 10
@@ -22,6 +22,7 @@ class DetailView: UIView {
     public lazy var activityTitle: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 25, weight: UIFont.Weight.bold)
 
         return label
@@ -29,6 +30,7 @@ class DetailView: UIView {
     
     public lazy var activityDescription: UILabel = {
         let activityDescription = UILabel()
+        activityDescription.textColor = .black
         activityDescription.numberOfLines = 0
         activityDescription.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
 
@@ -37,6 +39,7 @@ class DetailView: UIView {
     
     public lazy var getStarted: UILabel = {
         let getStartedText = UILabel()
+        getStartedText.textColor = .black
         getStartedText.numberOfLines = 0
         getStartedText.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
 
@@ -46,9 +49,10 @@ class DetailView: UIView {
     public lazy var submitButton: UIButton = {
         let button = UIButton()
         button.setTitle("  Add Your Work  ", for: .normal)
-    
+        button.backgroundColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+        button.layer.cornerRadius = 5.0
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
-        button.setTitleColor(.link, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         return button
     }()
     

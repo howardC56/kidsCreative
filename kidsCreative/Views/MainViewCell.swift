@@ -53,11 +53,7 @@ class MainViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
 
-    
-    
-   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -132,7 +128,7 @@ class MainViewCell: UICollectionViewCell {
         currentActivity = savedActivity
         dateDay.text = savedActivity.number.description
         nameOfActivity.text = savedActivity.name
-        
+        pictureOfActivity.image = UIImage(named: savedActivity.number.description)
     }
     
 }
